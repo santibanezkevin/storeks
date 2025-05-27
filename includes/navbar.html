@@ -1,42 +1,68 @@
-<nav class="navbar navbar-expand-lg minavbar ">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg minavbar">
+  <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-        <img src="../assets/img/storekslogo.webp" alt="Logo de STORE KS" width="75" height="75">
+      <img
+        src="../assets/img/storekslogo.webp"
+        alt="Logo de STORE KS"
+        width="75"
+        height="75"
+      />
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
-        <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="index.html">Home</a>
-        </li>
-
+      <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll" id="menu-links">
+        <!-- Categorías Dropdown -->
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorias
-            </a>
-            <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="zapatillas.html">Zapatillas</a></li>
-            <li><a class="dropdown-item" href="indumentaria.html">Indumentaria</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="accesorios.html">Accesorios</a></li>
-            </ul>
+          <a
+            class="nav-link dropdown-toggle text-white"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Categorías
+          </a>
+          <ul class="dropdown-menu" id="dropdown-categorias"></ul>
         </li>
-        </ul>
-
-        <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-            <a class="nav-link text-white" href="login.html">Login</a>
+        <!-- Login -->
+        <li class="nav-item" id="login-link" style="display: none;">
+          <a class="nav-link text-white" href="login.html">Login</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="carrito.html">Carrito</a>
+        <!-- Carrito -->
+        <li class="nav-item" id="login-carrito" style="display: none;">
+          <a class="nav-link text-white" href="carrito.html">Carrito</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="logout.html">Salir</a>
+        <!-- Salir -->
+        <li class="nav-item" id="logout-link-li" style="display: none;">
+          <a class="nav-link text-white" href="#" id="logout-link">Salir</a>
         </li>
-        </ul>
+      </ul>
     </div>
-    </div>
+  </div>
 </nav>
+
+<script>
+  fetch("includes/navbar.html")
+    .then((res) => res.text())
+    .then(async (data) => {
+      document.getElementById("navbar-container").innerHTML = data;
+
+      // ...tu código de login/logout...
+
+      // Carga links.js después de insertar el navbar
+      const script = document.createElement('script');
+      script.src = "assets/js/links.js";
+      document.body.appendChild(script);
+    });
+</script>

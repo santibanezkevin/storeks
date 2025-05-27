@@ -1,28 +1,26 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    background: linear-gradient(to bottom, #116D6A, #3FA8A3);
-    color: #fff;
-  }
-  
-  .container-indumentaria
-  {
-        background: linear-gradient(to top, #116D6A, #3FA8A3);
-  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(to bottom, #116d6a, #3fa8a3);
+  color: #fff;
+}
 
-  .container-zapatillas
-  {
-        background: linear-gradient(to top, #116D6A, #3FA8A3);
-  }
+.container-indumentaria {
+  background: linear-gradient(to top, #116d6a, #3fa8a3);
+}
 
-  .container-accesorios
-  {
-        background: linear-gradient(to top, #116D6A, #3FA8A3);
-  }
+.container-zapatillas {
+  background: linear-gradient(to top, #116d6a, #3fa8a3);
+}
+
+.container-accesorios {
+  background: linear-gradient(to top, #116d6a, #3fa8a3);
+}
 
 .card-img-top {
   width: 100%;
-  height: 200px; 
+  height: 200px;
   object-fit: contain;
   border-radius: 10px 10px 0 0;
   display: block;

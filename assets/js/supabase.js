@@ -1,7 +1,7 @@
 const { createClient } = supabase;
 
 const SUPABASE_URL = 'https://brulmiuuabzxowgeduit.supabase.co';
-const SUPABASE_KEY = 'insertar_token_aqui';
+const SUPABASE_KEY = 'profe, por favor, ingrese la API KEY de Supabase aquí';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function leerProductos(tipo) {
@@ -58,4 +58,100 @@ async function mostrarProductos(categoria) {
     `;
     contenedor.innerHTML += cardHTML;
   });
+}
+
+
+
+async function iniciarSesion(email, password) {
+
+  if (!email || !password) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Campos incompletos',
+      text: 'Por favor, ingresa tu email y contraseña.',
+      confirmButtonColor: '#116d6a'
+    });
+    return;
+  }
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Credenciales incorrectas o el usuario no existe.',
+      confirmButtonColor: '#116d6a', // Cambia el color del botón
+
+    });
+    return;
+  }
+
+  Swal.fire({
+    icon: 'success',
+    title: '¡Bienvenido!',
+    text: 'Inicio de sesión exitoso.',
+    timer: 1500,
+    showConfirmButton: false
+  }).then(() => {
+    window.location.href = "index.html";
+  });
+}
+
+
+async function crearUsuario(email, password, displayName) {
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        display_name: displayName
+      }
+    }
+  });
+
+  if (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: error.message,
+      confirmButtonColor: '#116d6a'
+    });
+    return;
+  }
+
+  Swal.fire({
+    icon: 'success',
+    title: '¡Usuario creado!',
+    text: 'Revisa tu correo para confirmar la cuenta.',
+    confirmButtonColor: '#116d6a'
+  }).then(() => {
+    window.location.href = "index.html";
+  });
+}
+
+
+async function cerrarSesion() {
+  const { error } = await supabaseClient.auth.signOut();
+
+  if (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Hubo un error al cerrar sesión.',
+      confirmButtonColor: '#116d6a'
+    });
+  } else {
+    Swal.fire({
+      icon: 'success',
+      title: 'Sesión cerrada',
+      text: 'Sesión cerrada correctamente.',
+      confirmButtonColor: '#116d6a'
+    }).then(() => {
+      window.location.href = 'login.html'; 
+    });
+  }
 }
