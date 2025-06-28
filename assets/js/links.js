@@ -1,11 +1,11 @@
 const cargarLinksNavbar = () => {
   const paginasPrincipales = [
-    { titulo: "Home", url: "index.html" }  ];
+    { titulo: "Home", url: "/index.html" }  ];
 
   const paginasCategorias = [
-    { titulo: "Zapatillas", url: "zapatillas.html" },
-    { titulo: "Indumentaria", url: "indumentaria.html" },
-    { titulo: "Accesorios", url: "accesorios.html" },
+    { titulo: "Zapatillas", url: "/categorias/zapatillas.html" },
+    { titulo: "Indumentaria", url: "/categorias/indumentaria.html" },
+    { titulo: "Accesorios", url: "/categorias/accesorios.html" },
   ];
 
   const navList = document.getElementById("menu-links");

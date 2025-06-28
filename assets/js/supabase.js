@@ -48,7 +48,7 @@ async function mostrarProductos(categoria) {
     const cardHTML = `
       <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
         <div class="card product-item">
-          <img src="${producto.url || '../img/storekslogo.webp'}" class="card-img-top" alt="${producto.name_product}">
+          <img src="${producto.url || '/img/storekslogo.webp'}" class="card-img-top" alt="${producto.name_product}">
           <div class="card-body">
             <h6 class="card-subtitle mb-2 text-muted ">${producto.type_product || ''}</h6>
             <h5 class="card-title">${producto.name_product}</h5>
@@ -219,7 +219,7 @@ async function iniciarSesion(email, password) {
       timer: 1500,
       showConfirmButton: false
     }).then(() => {
-      window.location.href = "index.html";
+      window.location.href = "/index.html";
     });
   }
 
@@ -277,7 +277,7 @@ async function cerrarSesion() {
       text: 'Sesión cerrada correctamente.',
       confirmButtonColor: '#116d6a'
     }).then(() => {
-      window.location.href = 'login.html';
+      window.location.href = '/login/login.html';
     });
   }
 }

@@ -2,7 +2,7 @@ async function cargarNavbarYSesion() {
   const container = document.getElementById("navbar-container");
   if (!container) return;
 
-  const res = await fetch("includes/navbar.html");
+  const res = await fetch("/includes/navbar.html");
   const data = await res.text();
   container.innerHTML = data;
 
@@ -36,7 +36,7 @@ async function cargarNavbarYSesion() {
   // Carga el script links.js y ejecuta la función cargarLinksNavbar()
   return new Promise((resolve) => {
     const script = document.createElement("script");
-    script.src = "assets/js/links.js";
+    script.src = "/assets/js/links.js";
     script.onload = () => {
       if (typeof cargarLinksNavbar === "function") {
         cargarLinksNavbar();
