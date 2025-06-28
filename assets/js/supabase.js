@@ -253,7 +253,7 @@ async function crearUsuario(email, password, displayName) {
     text: 'Revisa tu correo para confirmar la cuenta.',
     confirmButtonColor: '#116d6a'
   }).then(() => {
-    window.location.href = "index.html";
+    window.location.href = "/index.html";
   });
 }
 
